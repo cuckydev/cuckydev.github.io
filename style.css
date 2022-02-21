@@ -1,0 +1,64 @@
+* {
+	image-rendering: pixelated;
+	image-rendering: optimizeSpeed;
+}
+
+body {
+	font-family: MS UI Gothic;
+	font-size: 12px;
+	line-height: 1.5em;
+	color: #f0f0f0;
+	padding: 0px;
+	background-color: #506478;
+	margin: 8px;
+}
+
+.main {
+	margin-left: 16px;
+	width: 544px;
+	display: inline-block;
+}
+
+.toplink {
+	display: inline-block;
+	width: 90px;
+	height: 27px;
+	border: 1px solid transparent;
+}
+
+.toplink:hover {
+	border: 1px solid white;
+}
+
+.toplinkb {
+	display: inline-block;
+	width: 90px;
+	height: 27px;
+	border: 1px dotted white;
+}
+
+.toplinkb:hover {
+	border: 1px solid white;
+}
+
+.ditch
+{
+	width: 544px;
+	height: 16px;
+	background-image: url("/img/ditch.png");
+}
+
+a {
+	/* Font */
+	color: #71A3C6FF;
+}
+
+a:hover {
+	/* Font */
+	color: #2080A0FF;
+}
+
+a:active {
+	/* Font */
+	color: #40A0FFFF;
+}
