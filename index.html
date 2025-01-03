@@ -1,32 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="/style.css">
-<title>CKDEV.ORG</title>
+<meta charset="UTF-8">
+
+<title>CKDEV's Site</title>
 
 <link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="/style.css">
 
-<meta property="og:url" content="https://ckdev.org/">
-<meta name="twitter:url" content="https://ckdev.org/">
-<meta property="og:title" content="Studio Cucky">
-<meta name="twitter:title" content="Studio Cucky">
-<meta property="og:description" content="Development Studio">
-<meta name="twitter:description" content="Development Studio">
-<meta name="description" content="Development Studio">
-<meta property="og:image" content="/favicon.png">
-<meta name="twitter:image" content="/favicon.png">
+<meta content="CKDEV's Site" property="og:title">
+<meta content="CKDEV's Site" property="og:description">
+<meta content="https://ckdev.org/" property="og:url">
+<meta content="#181880" data-react-helmet="true" name="theme-color">
+
+<script>
+const CHAR_LIST = [
+	{ name: "cluck", chance: 100 },
+	{ name: "rogyo", chance: 30 },
+	{ name: "nerd", chance: 1 },
+]
+
+function setLogo(c) {
+	const logoElement = document.getElementById('logochar');
+	if (logoElement) {
+		logoElement.src = `/chars/${c.name}.png`;
+	}
+}
+
+function randomizeLogo() {
+	let total = 0;
+	for (let i = 0; i < CHAR_LIST.length; i++)
+	{
+		const c = CHAR_LIST[i];
+		total += c.chance;
+		c.x = total;
+	}
+	
+	const fun = Math.random() * total;
+	for (let i = 0; i < CHAR_LIST.length; i++)
+	{
+		const c = CHAR_LIST[i];
+		if (fun < c.x)
+		{
+			setLogo(c);
+			break;
+		}
+	}
+}
+
+// Wait for the DOM to fully load
+document.addEventListener('DOMContentLoaded', () => {
+	randomizeLogo();
+});
+</script>
 </head>
 <body>
-<img src="/img/studio.png"/>
-<a class="toplinkb" href="/" style="background-image: url('/img/btnHome.png')"></a>
-<a class="toplink" href="/portfolio.html" style="background-image: url('/img/btnPortfolio.png')"></a>
-<a class="toplink" href="/resume.html" style="background-image: url('/img/btnResume.png')"></a>
-<a class="toplink" href="/contact.html" style="background-image: url('/img/btnContact.png')"></a>
-<div class="ditch"></div>
-<div class="main">
-<p>Hello, I am Regan "CKDEV" Green, I program video games and other proprietary software.</p>
-<p>Check out my stuff!</p>
-<p>Github: <a href="https://github.com/cuckydev">cuckydev</a></p>
+<div class="content">
+<div class="logocontainer">
+<img src="/sitelogo.png" alt="CKDEV's Site" class="sitelogo disableimghighlight" draggable="false"/>
+<img src="" id="logochar" class="logochar disableimghighlight" draggable="false"/></div>
+<hr>
+<h2>Welcome</h2>
+<p>Hello, I'm Regan "CKDEV" Green. I'm a video game programmer</p>
+<hr>
+<h2>Work Experience</h2>
+<p><b>Mar. 2024 - Present:</b> Gameplay Programmer at <a href="https://team-reptile.com">Team Reptile</a></p>
+<p><b>Jan. 2022 - Dec. 2022:</b> Junior Programmer at <a href="https://gamefam.com/">Gamefam Studios</a></p>
+<hr>
+<h2>Portfolio</h2>
+<h3>Professional Works</h3>
+<p><a href="https://www.roblox.com/games/9049840490/Sonic-Speed-Simulator/">Sonic Speed Simulator</a> - Licensed Roblox Sonic the Hedgehog game</p>
+<h3>Personal Works</h3>
+<p><a href="https://github.com/cuckydev/CKSDK/">CKSDK</a> - PlayStation Software Development Kit written in C++</p>
+<p><a href="https://github.com/cuckydev/QScript/">QScript</a> - Compiler and decompiler of Neversoft Q scripts</p>
+<p><a href="https://github.com/SonicOnset/SonicOnset/">Sonic Onset Adventure</a> - 3D Sonic the Hedgehog fangame written in C#</p>
+<p><a href="https://github.com/cuckydev/Sonic1C/">Sonic1C</a> - Port of Sonic the Hedgehog (1991 Sega Genesis / MegaDrive) to C and modern systems</p>
+<p><a href="https://github.com/cuckydev/PSXFunkin/">PSXFunkin</a> - PlayStation port of Friday Night Funkin'</p>
+<p>You can find many more of my projects not listed here on my <a href="https://github.com/cuckydev">GitHub</a></p>
 </div>
 </body>
-</html>
+</html> 
